@@ -12,7 +12,11 @@ restService.use(
 );
 
 restService.use(bodyParser.json());
-
+restService.all('/', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+ });
 restService.get("/echo1", function(req, res) {
   return res.json({
     
