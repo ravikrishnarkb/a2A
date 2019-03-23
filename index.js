@@ -13,6 +13,13 @@ restService.use(
 
 restService.use(bodyParser.json());
 
+restService.get("/echo1", function(req, res) {
+  return res.json({
+    
+    source: "webhook-echo-sample"
+  });
+});
+
 restService.post("/echo", function(req, res) {
   var speech =
     req.body.result &&
